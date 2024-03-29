@@ -3,21 +3,26 @@ package com.leocg.workshopmongo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "user")	// Informando para o spring que esse é um documento do mongoDB.
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private String id;
 	private String name;
-	private String mail;
+	private String email;
 	
 	public User() {
 	}
 
-	public User(String id, String name, String mail) {
+	public User(String id, String name, String email) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.mail = mail;
+		this.email = email;
 	}
 
 	public String getId() {
@@ -36,12 +41,12 @@ public class User implements Serializable{
 		this.name = name;
 	}
 
-	public String getMail() {
-		return mail;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
